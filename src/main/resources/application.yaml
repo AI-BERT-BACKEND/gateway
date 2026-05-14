@@ -1,0 +1,65 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: task-service
+          uri: https://aibert-task-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
+          predicates:
+            - Path=/task-service/**
+
+        - id: stats-service
+          uri: https://aibert-stats-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
+          predicates:
+            - Path=/stats-service/**
+
+        - id: social-service
+          uri: https://aibert-social-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
+          predicates:
+            - Path=/social-service/**
+
+        - id: recommendation-service
+          uri: https://aibert-recommendation-servic-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
+          predicates:
+            - Path=/recommendation-service/**
+
+        - id: profile-service
+          uri: https://aibert-profile-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
+          predicates:
+            - Path=/profile-service/**
+
+        - id: notification-service
+          uri: https://aibert-notification-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
+          predicates:
+            - Path=/api/v1/notifications/**
+
+        - id: gamification-service
+          uri: https://aibert-gamification-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
+          predicates:
+            - Path=/gamification-service/**
+
+        - id: engineplanning-service
+          uri: https://aibert-engineplaning-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
+          predicates:
+            - Path=/engineplanning-service/**
+
+        - id: auth-service
+          uri: https://aibert-auth-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
+          predicates:
+            - Path=/auth-service/**
+
+        - id: academic-service
+          uri: https://aibert-academic-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
+          predicates:
+            - Path=/academic-service/**
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
