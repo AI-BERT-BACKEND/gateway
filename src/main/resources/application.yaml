@@ -63,7 +63,8 @@ spring:
           uri: https://aibert-stats-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
           predicates:
             - Path=/api/stats/**
-
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
 server:
   port: 8080
 
