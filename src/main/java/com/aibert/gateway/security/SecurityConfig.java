@@ -14,8 +14,18 @@ public class SecurityConfig {
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
         return http
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
+                .httpBasic(ServerHttpSecurity.HttpBasicSpec::disable)
+                .formLogin(ServerHttpSecurity.FormLoginSpec::disable)
                 .authorizeExchange(exchanges -> exchanges
                         .anyExchange().permitAll()
+                )
+                .exceptionHandling(ex -> ex
+                        .authenticationEntryPoint((exchange, e) -> {
+                            exchange.getResponse().setStatusCode(
+                                    org.springframework.http.HttpStatus.UNAUTHORIZED
+                            );
+                            return exchange.getResponse().setComplete();
+                        })
                 )
                 .build();
     }
