@@ -56,6 +56,8 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
         ServerWebExchange mutatedExchange = exchange.mutate()
                 .request(r -> r
                         .header("X-User-Email", claims.getSubject())
+                        .header("X-User-Id", claims.get("userId", String.class))
+                        .header("X-User-Role", claims.get("role", String.class))
                 )
                 .build();
 
