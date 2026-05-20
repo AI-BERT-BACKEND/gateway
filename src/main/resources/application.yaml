@@ -82,6 +82,3 @@ management:
 jwt:
   secret: ${JWT_SECRET:secretLocalParaDesarrolloMuyLargoMinimo32Chars}
 
-security:
-  public-paths:
-    - /api/auth/**

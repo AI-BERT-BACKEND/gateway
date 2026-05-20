@@ -22,8 +22,7 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
     private final JwtUtil jwtUtil;
     private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
-    @Value("${security.public-paths}")
-    private List<String> publicPaths;
+    private final List<String> publicPaths = List.of("/api/auth/**");
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
