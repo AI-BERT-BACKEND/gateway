@@ -52,7 +52,7 @@ spring:
         - id: gamification-service
           uri: https://aibert-gamification-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
           predicates:
-            - Path=/api/gamification/**
+            - Path=/api/gamification/**, , /api/v1/gamification/**
 
         - id: notification-service
           uri: https://aibert-notification-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
