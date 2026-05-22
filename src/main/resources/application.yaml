@@ -27,7 +27,7 @@ spring:
         - id: academic-service
           uri: https://aibert-academic-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
           predicates:
-            - Path=/api/v1/academic/**, /api/v1/subjects/**
+            - Path=/api/v1/academic/**, /api/v1/subjects, /api/v1/subjects/**
 
         - id: task-service
           uri: https://aibert-task-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
