@@ -58,6 +58,8 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
                         .header("X-User-Email", claims.getSubject())
                         .header("X-User-Id", claims.get("userId", String.class))
                         .header("X-User-Role", claims.get("role", String.class))
+                        .header("X-Student-Id", claims.get("userId", String.class))
+                        .header("studentId", claims.get("userId", String.class))
                 )
                 .build();
 
