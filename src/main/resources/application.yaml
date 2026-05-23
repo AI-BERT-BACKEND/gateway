@@ -14,15 +14,16 @@ spring:
             allowedHeaders: "*"
             allowMaxAge: 3600
       routes:
-        - id: auth-service
-          uri: https://aibert-auth-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
-          predicates:
-            - Path=/api/auth/**
 
         - id: profile-service
           uri: https://aibert-profile-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
           predicates:
-            - Path=/api/profile/**, /api/admin/users/**
+            - Path=/api/profile/**, /api/admin/users/** , /api/auth/verify-otp, /api/auth/resend-verification, /api/auth/register , /internal/users/**
+
+        - id: auth-service
+          uri: https://aibert-auth-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
+          predicates:
+            - Path=/api/auth/**
 
         - id: academic-service
           uri: https://aibert-academic-service-qa.yellowwave-cb2d91fc.centralus.azurecontainerapps.io
